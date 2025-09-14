@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Villa in Hawassa | SidamaRent</title>
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../styles/property-detail.css">
+</head>
+<body>
+
+    <!-- naviigation bar -->
+    <div id="navbar"></div>
+
+    <div class="container">
+        <!-- Property Header -->
+        <div class="property-header">
+            <h1 id="property_title">Modern 3-Bedroom Villa with Lake View</h1>
+            <div class="property-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="property_address">Hawassa, Sidama Region</span>
+            </div>
+            <div id="property_price" class="property-price">ETB 25,000/mo</div>
+            <div class="property-meta">
+                <div class="meta-item">
+                    <i class="fas fa-bed"></i>
+                    <span id="bedroom">3 Bedrooms</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-bath"></i>
+                    <span id="bathroom">4 Bathrooms</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span id="area">180 m²</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-building"></i>
+                    <span id="type">Villa</span>
+                </div>
+            </div>
+            <div class="property-actions">
+                <button class="action-btn save-btn" id="saveProperty">
+                    <i class="far fa-heart"></i> Save
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="gallery-container">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                 alt="Modern Villa" 
+                 class="main-image" 
+                 id="mainImage">
+            <div class="thumbnail-container" id="thumbnailContainer">
+
+            </div>
+        </div>
+
+        <!-- Property Details -->
+        <div class="property-details">
+            <!-- Main Details -->
+            <div class="details-section">
+                <h2 class="section-title">Description</h2>
+                <p class="description" id="description">
+                    This stunning modern villa offers breathtaking views of Lake Hawassa from its spacious terrace. 
+                    The property features 3 generously sized bedrooms, 2 modern bathrooms, and an open-plan living 
+                    area with floor-to-ceiling windows. The fully equipped kitchen comes with high-end appliances, 
+                    and the master bedroom includes a walk-in closet and en-suite bathroom. The property is located 
+                    in a secure, gated community with 24/7 security.
+                </p>
+
+                <h2 class="section-title">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div>
+                            <h4>High-Speed Internet</h4>
+                            <p>Fiber optic connection</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <div>
+                            <h4>Parking</h4>
+                            <p>2 covered parking spots</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div>
+                            <h4>Air Conditioning</h4>
+                            <p>Central AC system</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-swimming-pool"></i>
+                        </div>
+                        <div>
+                            <h4>Swimming Pool</h4>
+                            <p>Shared community pool</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Amenities</h2>
+                <div class="amenities-grid">
+                    <div class="amenity-item">
+                        <i class="fas fa-check" style="color: var(--secondary);"></i>
+                        <span>Security System</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-check" style="color: var(--secondary);"></i>
+                        <span>Garden</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-check" style="color: var(--secondary);"></i>
+                        <span>Balcony</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-check" style="color: var(--secondary);"></i>
+                        <span>Furnished</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-check" style="color: var(--secondary);"></i>
+                        <span>Laundry</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fas fa-check" style="color: var(--secondary);"></i>
+                        <span>Dishwasher</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Owner Card -->
+            <div class="owner-card">
+                <div class="owner-header">
+                    <img id="ownerImage" src="https://randomuser.me/api/portraits/men/42.jpg" 
+                         alt="Owner" 
+                         class="owner-avatar">
+                    <div class="owner-info">
+                        <h3 id="ownerName">Adane Desta</h3>
+                        <div class="owner-rating">
+                            <i class="fas fa-star"></i>
+                            <span id="rating">4.8 (24 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 class="section-title">Contact Owner</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Your Name</label>
+                            <input type="text" id="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="tel" id="contactPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" required placeholder="type your message..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <p>Or contact directly:</p>
+                    <div style="display: flex; flex-direction: column; justify-content: center; margin-top: 1rem;">
+                        <a id="owner_phone" href="#" style="text-decoration: none; font-weight: 700; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-phone-alt"></i>
+                        </a>
+                        <a href="#" style="color: var(--primary); font-size: 1.2rem;">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a id="owner_email" href="#" style="text-decoration: none; font-weight: 700; color: var(--primary); font-size: 1.2rem;">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer"></div>
+
+    <script src="../javascripts/property-detail.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
