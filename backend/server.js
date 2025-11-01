@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 
 app.use('/api' , router)
 
-app.use('/public', express.static('public'))
+app.use('', express.static('public'))
 
 
 app.listen(PORT , ()=>{

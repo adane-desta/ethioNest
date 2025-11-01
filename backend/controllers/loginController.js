@@ -14,7 +14,7 @@ const loginController = {
         if(isValidUser){
             res.status(201).json(isValidUser[0])
         }else{
-            res.status(201).json(null)
+            res.status(201).json(false)
         }
 
         }catch(error){

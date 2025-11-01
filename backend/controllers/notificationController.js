@@ -2,7 +2,6 @@ import Notification from '../models/notificationModel.js';
 
 const notificationController = {
 
-
  getNotifications: async (req, res) => {
   try {
     const notifications = await Notification.findByUserId(req.params.userId);

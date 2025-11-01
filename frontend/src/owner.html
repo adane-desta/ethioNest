@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real Estate Owner Dashboard</title>
+  <link rel="stylesheet" href="./owner.css">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2 id="owner_name"> Adane Desta</h2>
+      <img class="profile-preview2" id="profile_pic" src="/images/defaultpp.jpeg" alt="">
+      <span style="margin-left: 33%; margin-top: -15%; color: rgb(4, 226, 255);">Owner</span>
+      <div class="side_bar">
+        <ul>
+          <li><a href="#" data-page="dashboard">Dashboard</a></li>
+          <li><a href="#" data-page="add-property">Add New Property</a></li>
+          <li><a href="#" data-page="manage-properties">Manage Properties</a></li>
+          <li><a href="#" data-page="inquiries">Inquiries</a></li>
+          <li><a href="#" data-page="profile-settings">Profile Settings</a></li>
+          <li><a href="./index.html" data-page="logout">Logout</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main">
+      
+      <!-- Top Navbar -->
+      <header id="onavbar"></header>
+
+      <section id="content-area" class="dashboard">
+      </section>
+
+    </div>
+  </div>
+
+  <script src="./owner.js"></script>
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

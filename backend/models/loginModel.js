@@ -19,7 +19,7 @@ const loginModel = {
 
              await connection.commit()
              return isValidUser.length > 0 ?  isValidUser : false;
-             
+                        
         }catch(error){
             await connection.rollback()
             console.log(error)

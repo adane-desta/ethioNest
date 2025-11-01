@@ -16,7 +16,7 @@ const signupModel = {
             
             // Handle profile image upload if exists
             if (profileImage) {
-                const uploadDir = path.join(__dirname, '../../public/images');
+                const uploadDir = path.join(__dirname, '../../images');
                 
                 // Create directory if it doesn't exist
                 if (!fs.existsSync(uploadDir)) {
