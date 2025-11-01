@@ -29,7 +29,7 @@ newProperty.year, newProperty.sp_location, newProperty.kebele ]
 
             // Handle image uploads
             if (images && images.length > 0) {
-                const uploadDir = path.join(__dirname, '../../images');
+                const uploadDir = path.join(__dirname, '/frontend/public/images');
                 
                 // Create directory if it doesn't exist
                 if (!fs.existsSync(uploadDir)) {

@@ -266,9 +266,9 @@ const Navbar = () => {
         </div>
 
         <div className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-          <a href="/frontend/html-files/homepage.html"><FaHome /> Home</a>
-          <a href="/frontend/html-files/properties.html"><FaBuilding /> Properties</a>
-          <a href="/frontend/html-files/saved.html"><FaHeart /> Saved</a>
+          <a href="./homepage.html"><FaHome /> Home</a>
+          <a href="./properties.html"><FaBuilding /> Properties</a>
+          <a href="./saved.html"><FaHeart /> Saved</a>
           <a 
             href="#" 
             ref={messagesLinkRef}
@@ -296,7 +296,7 @@ const Navbar = () => {
           <a href="#" style={{cursor: 'pointer', textDecoration: 'none'}}>
             <div className="profile-preview">
               <img 
-                src={user.profile+_picture ? `/images/${user.profile_picture}` : '/images/defaultpp.jpeg'} 
+                src={user.profile_picture ? `/images/${user.profile_picture}` : '/images/defaultpp.jpeg'} 
                 alt="Profile Preview"
               />
             </div>
