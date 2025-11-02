@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', async() => {
 document.getElementById('feedbackForm').addEventListener('submit', async() =>{
 
     try{
-        const response = await fetch(`http://192.168.51.10:5200/api/addFeedback` , {
+        const response = await fetch(`${API_BASE_URL}/addFeedback` , {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
