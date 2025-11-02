@@ -476,26 +476,6 @@ async function approveProperty(property_id, property_title, owner_id) {
     }
   }
 
-// Handle rejecting a property
-async function rejectProperty(property_id) {
-    if (confirm('Are you sure you want to reject this property?')) {
-        try {
-            const response = await fetch(`${API_BASE_URL}/approveProperty/${property_id}?status=rejected`, {
-                method: 'PUT'
-            });
-            
-            if (response.ok) {
-                alert('Property rejected successfully!');
-                requestsnav.click(); // Refresh the requests list
-            } else {
-                throw new Error('Failed to reject property');
-            }
-        } catch (error) {
-            console.error('Error rejecting property:', error);
-            alert('Failed to reject property');
-        }
-    }
-}
 
 function showDetail(propertyId) {
     localStorage.setItem("activeProperty", propertyId);
