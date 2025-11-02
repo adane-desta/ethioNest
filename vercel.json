@@ -1,0 +1,18 @@
+{
+  "builds": [
+    { "src": "frontend/dist/**/*", "use": "@vercel/static" }
+  
+  ],
+  "routes": [
+    { "src": "/login", "dest": "/frontend/dist/login.html" },
+    { "src": "/signup", "dest": "/frontend/dist/signup.html" },
+    { "src": "/admin", "dest": "/frontend/dist/admin.html" },
+    { "src": "/forgot_password", "dest": "/frontend/dist/forgot_password.html" },
+    { "src": "/homepage", "dest": "/frontend/dist/homepage.html" },
+    { "src": "/owner", "dest": "/frontend/dist/owner.html" },
+    { "src": "/properties", "dest": "/frontend/dist/properties.html" },
+    { "src": "/property-detail", "dest": "/frontend/dist/property-detail.html" },
+    { "src": "/saved", "dest": "/frontend/dist/saved.html" },
+    { "src": "/(.*)", "dest": "/frontend/dist/index.html" }
+  ]
+}
