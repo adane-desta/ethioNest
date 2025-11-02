@@ -1,6 +1,5 @@
 {
-    "buildCommand": "npm run build",
-    "outputDirectory": "frontend/dist",
+
     "rewrites": [
       { "source": "/login", "destination": "/login.html" },
       { "source": "/signup", "destination": "/signup.html" },
