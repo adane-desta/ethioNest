@@ -71,13 +71,13 @@ if (loginForm) {
             let redirectPath;
             switch(user.role) {
                 case 'tenant':
-                    redirectPath = './homepage.html';
+                    redirectPath = '/homepage.html';
                     break;
                 case 'owner':
-                    redirectPath = './owner.html';
+                    redirectPath = '/owner.html';
                     break;
                 case 'admin':
-                    redirectPath = './admin.html';
+                    redirectPath = '/admin.html';
                     break;
                 default:
                     throw new Error('Unknown user role');
