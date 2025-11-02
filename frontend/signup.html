@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - SidamaRent</title>
+    <link rel="stylesheet" href="/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/src/signup.css">
+
+</head>
+<body>
+    <form id="signupForm">
+    <div class="auth-container">
+        <div class="container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Create Your Account</h1>
+                    <p>Join AdareRent as either a tenant/buyer or property owner</p>
+                    <P>required fields are labeled with <span class="reqFields">*</span></P>
+                </div>
+                
+                <div class="role-toggle">
+                    <button class="role-btn active" id="tenantBtn">Tenant/Buyer</button>
+                    <button class="role-btn" id="ownerBtn">Property Owner</button>
+                </div>
+                
+                <div class="auth-form">
+                    <!-- Common Fields -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="reqFields">*</span></label>
+                            <input type="text" placeholder="first name" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="reqFields">*</span></label>
+                            <input type="text" placeholder="last name" id="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="reqFields">*</span> </label>
+                        <input type="email" placeholder="email address" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="reqFields">*</span></label>
+                        <input type="tel" placeholder="phone Number" id="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password <span class="reqFields">*</span> </label>
+                        <input type="password" placeholder="password" id="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password <span class="reqFields">*</span></label>
+                            <input type="password" placeholder="confirm password" id="confirmPassword" required>
+                        </div>
+                        
+                        <div class="tenant-fields">
+                            <div class="form-group">
+                                <label for="occupation">bio</label>
+                                <input type="text" id="bio" placeholder="something about you?">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="preferredLocation">Preferred Location</label>
+                                <select id="preferredLocation">
+                                    <option value="" selected disabled>Select preferred location</option>
+                                    <option value="hawassa">Tabor</option>
+                                    <option value="yirgalem">Pissa</option>
+                                    <option value="dilla">Atote</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group profile-upload">
+                            <div class="profile-preview">
+                                <img id="profilePreview" src="#" alt="Profile Preview">
+                                <i class="fas fa-user" style="font-size: 2rem; color: #94a3b8;"></i>
+                            </div>
+                            <div class="upload-btn">
+                                <input type="file" id="profileImage" accept="image/*">
+                                <label for="profileImage">Upload Profile Photo</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Create Account</button>
+                        
+                        <div class="login-link">
+                            Already have an account? <a href="./login.html">Log in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        <script src="/src/signup.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+    </html>

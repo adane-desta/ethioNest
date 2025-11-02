@@ -9,29 +9,8 @@
 </head>
 <body>
     <!-- Navigation Bar-->
-    <nav>
-        <div class="logo">
-            <img src="/images/adare_rent_logo.png" alt="Logo">
-            <span class="logo-text">Adare<span>Rent</span></span>
-        </div>
 
-        <div class="nav-links">
-            <a href="#"><i class="fas fa-home"></i> Home</a>
-            <a href="#properties"><i class="fas fa-building"></i> Properties</a>
-            <a href="#processs"><i class="fas fa-envelope"></i> how it works</a>
-            <a href="#popLoc"><i class="fas fa-map-marker-alt"></i> popular locations</a>
-            <a href="#about"><i class="fas fa-info-circle"></i> About</a>
-            <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
-        </div>
-
-        <div class="nav-actions">
-            <a class="btn btn-secondary" href="/login.html">Login</a>
-            <a class="btn btn-primary" href="/signup.html">Sign Up</a>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <div id="navbar"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -44,7 +23,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Discover Your Dream Home in Hawassa</h1>
-                <p>Experience the easiest way to find, rent, or buy properties across the City with our trusted platform</p>
+                <p>Experience the easiest way to find, rent, or buy properties across the region with our trusted platform</p>
                 
                 <div class="search-box">
                     <div class="search-tabs">
@@ -59,7 +38,7 @@
                             <option>Villa</option>
                             <option>Commercial</option>
                         </select>
-                        <button class="search-btn"  onClick="showLoginPopup()">
+                        <button class="search-btn">
                             <i class="fas fa-search"></i> Search
                         </button>
                     </div>
@@ -76,7 +55,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Featured Properties</h2>
-                <a  onClick="showLoginPopup()" style="cursor: pointer;" class="view-all">View All Properties</a>
+                <a href="./properties.html" class="view-all">View All Properties</a>
             </div>
             
             <div class="property-grid" id="propertyGrid">
@@ -90,9 +69,9 @@
             <h2>About AdareRent</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Founded in 2024, AdareRent is the leading digital real estate platform in Hawassa city, connecting property owners with potential tenants and buyers through an innovative online marketplace.</p>
-                    <p>Our mission is to revolutionize the property rental and purchase process by providing a transparent, efficient, and user-friendly platform that serves the unique needs of the community.</p>
-                    <p>With a team of passionate software engineers in collaboration with Sidama Regional State Science and Technology Institute, we've built a platform that combines cutting-edge technology with local market understanding.</p>
+                    <p>Founded in 2024, AdareRent is the leading digital real estate platform in the Sidama Region, connecting property owners with potential tenants and buyers through an innovative online marketplace.</p>
+                    <p>Our mission is to revolutionize the property rental and purchase process by providing a transparent, efficient, and user-friendly platform that serves the unique needs of the Sidama community.</p>
+                    <p>With a team of passionate software engineers from Sidama Regional State Science and Technology Institute, we've built a platform that combines cutting-edge technology with local market understanding.</p>
                     
                     <div class="stats">
                         <div class="stat-item">
@@ -207,19 +186,19 @@
                     <form id="feedbackForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Enter your name">
+                            <input type="text" id="name" placeholder="Enter your name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Enter your email">
+                            <input type="email" id="email" placeholder="Enter your email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="Enter subject">
+                            <input type="text" id="subject" placeholder="Enter subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" placeholder="Enter your message"></textarea>
+                            <textarea id="message" placeholder="Enter your message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -234,7 +213,7 @@
             <div class="cta-content">
                 <h2>List Your Property With Us</h2>
                 <p>Join hundreds of property owners reaching thousands of potential tenants and buyers</p>
-                <a href="./src/signup.html" class="btn btn-primary">Become an Owner</a>
+                <a href="./signup.html" class="btn btn-primary">Become an Owner</a>
             </div>
             <div class="cta-image">
                 <img src="/images/cta_image.avif" alt="Property owner">
@@ -245,7 +224,7 @@
     <!-- Popular Locations -->
     <section class="locations" id="popLoc">
         <div class="container">
-            <h2>Popular Locations in Hawassa</h2>
+            <h2>Popular Locations in Sidama</h2>
             <div class="location-cards" id="locationCards">
             </div>
         </div>
@@ -255,62 +234,15 @@
     <section class="cta-customer">
         <div class="container">
             <h2>Ready to Find Your New Home?</h2>
-            <button  onClick="showLoginPopup()" class="btn btn-primary">Browse Properties</button>
-            <a href="./src/signup.html" class="btn btn-secondary">Create Account</a>
+            <a href="./properties.html" class="btn btn-secondary">Browse Properties</a>
         </div>
     </section>
 
-        <!-- The popup -->
-        <div class="popup-overlay" id="loginPopup">
-            <div class="popup-container">
-                <button class="close-btn" id="closePopup">&times;</button>
-                <div class="popup-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                        <polyline points="10 17 15 12 10 7"></polyline>
-                        <line x1="15" y1="12" x2="3" y2="12"></line>
-                    </svg>
-                </div>
-                <h2 class="popup-title">Access Denied</h2>
-                <p class="popup-message">Please login or sign up first to access this content</p>
-                <div class="button-group">
-                    <button class="popup-btn login-btn" id="loginBtn">Login</button>
-                    <button class="popup-btn signup-btn" id="signupBtn">Sign Up</button>
-                </div>
-            </div>
-        </div>
-
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>SidamaRent</h4>
-                    <p>Digital property solutions for Hawassa city</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#">Home</a>
-                    <a href="#properties">Properties</a>
-                    <a href="#processs">How It Works</a>
-                    <a href="#popLoc">Popular locations</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-phone"></i> +251 912 345 678</p>
-                    <p><i class="fas fa-envelope"></i> info@adarerent.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Hawassa, Sidama region, Ethiopia</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© 2024 Sidama Regional State Science and Technology Institute. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="/src/index.js"></script>
+    <div id="footer"></div>
+    
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="/src/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
