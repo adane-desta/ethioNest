@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SidamaRent - Find Your Perfect Home</title>
+  <link rel="stylesheet" crossorigin href="/assets/fontawesome-DA2Bk-Y5.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-DQpRoyf9.css">
+</head>
+<body>
+    <!-- Navigation Bar-->
+    <nav>
+        <div class="logo">
+            <img src="/images/adare_rent_logo.png" alt="Logo">
+            <span class="logo-text">Adare<span>Rent</span></span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#properties"><i class="fas fa-building"></i> Properties</a>
+            <a href="#processs"><i class="fas fa-envelope"></i> how it works</a>
+            <a href="#popLoc"><i class="fas fa-map-marker-alt"></i> popular locations</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+            <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
+        </div>
+
+        <div class="nav-actions">
+            <a class="btn btn-secondary" href="/login.html">Login</a>
+            <a class="btn btn-primary" href="/signup.html">Sign Up</a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover Your Dream Home in Hawassa</h1>
+                <p>Experience the easiest way to find, rent, or buy properties across the City with our trusted platform</p>
+                
+                <div class="search-box">
+                    <div class="search-tabs">
+                        <button class="active">For Rent</button>
+                        <button>For Sale</button>
+                    </div>
+                    <div class="search-fields">
+                        <input type="text" placeholder="Location (e.g. Hawassa, Yirgalem)">
+                        <select>
+                            <option>Property Type</option>
+                            <option>Apartment</option>
+                            <option>Villa</option>
+                            <option>Commercial</option>
+                        </select>
+                        <button class="search-btn"  onClick="showLoginPopup()">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/images/hawasa.jpg" alt="Modern house in Sidama">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="featured" id="properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Properties</h2>
+                <a  onClick="showLoginPopup()" style="cursor: pointer;" class="view-all">View All Properties</a>
+            </div>
+            
+            <div class="property-grid" id="propertyGrid">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About AdareRent</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2024, AdareRent is the leading digital real estate platform in Hawassa city, connecting property owners with potential tenants and buyers through an innovative online marketplace.</p>
+                    <p>Our mission is to revolutionize the property rental and purchase process by providing a transparent, efficient, and user-friendly platform that serves the unique needs of the community.</p>
+                    <p>With a team of passionate software engineers in collaboration with Sidama Regional State Science and Technology Institute, we've built a platform that combines cutting-edge technology with local market understanding.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Properties</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Users</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="/images/photo_2025-06-25_10-16-22.jpg" alt="Our Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="process" id="processs">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Find a Property</h3>
+                    <p>Search using filters or browse our extensive listings</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Contact Owner</h3>
+                    <p>Message directly through our secure platform</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Make It Yours</h3>
+                    <p>Sign agreement and complete your move</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial-cards" id="testimonialCards">
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Sidama Regional State Science and Technology Institute, Hawassa</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+251 912 345 678</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@sidamarent.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Business Hours</h3>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <p>Monday - Friday: 8:30 AM - 5:30 PM</p>
+                                <p>Saturday: 9:00 AM - 2:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Enter subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA for Owners -->
+    <section class="cta-owner">
+        <div class="container">
+            <div class="cta-content">
+                <h2>List Your Property With Us</h2>
+                <p>Join hundreds of property owners reaching thousands of potential tenants and buyers</p>
+                <a href="./src/signup.html" class="btn btn-primary">Become an Owner</a>
+            </div>
+            <div class="cta-image">
+                <img src="/images/cta_image.avif" alt="Property owner">
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Locations -->
+    <section class="locations" id="popLoc">
+        <div class="container">
+            <h2>Popular Locations in Hawassa</h2>
+            <div class="location-cards" id="locationCards">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA for Customers -->
+    <section class="cta-customer">
+        <div class="container">
+            <h2>Ready to Find Your New Home?</h2>
+            <button  onClick="showLoginPopup()" class="btn btn-primary">Browse Properties</button>
+            <a href="./src/signup.html" class="btn btn-secondary">Create Account</a>
+        </div>
+    </section>
+
+        <!-- The popup -->
+        <div class="popup-overlay" id="loginPopup">
+            <div class="popup-container">
+                <button class="close-btn" id="closePopup">&times;</button>
+                <div class="popup-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                        <polyline points="10 17 15 12 10 7"></polyline>
+                        <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                </div>
+                <h2 class="popup-title">Access Denied</h2>
+                <p class="popup-message">Please login or sign up first to access this content</p>
+                <div class="button-group">
+                    <button class="popup-btn login-btn" id="loginBtn">Login</button>
+                    <button class="popup-btn signup-btn" id="signupBtn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SidamaRent</h4>
+                    <p>Digital property solutions for Hawassa city</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#">Home</a>
+                    <a href="#properties">Properties</a>
+                    <a href="#processs">How It Works</a>
+                    <a href="#popLoc">Popular locations</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +251 912 345 678</p>
+                    <p><i class="fas fa-envelope"></i> info@adarerent.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hawassa, Sidama region, Ethiopia</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2024 Sidama Regional State Science and Technology Institute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
