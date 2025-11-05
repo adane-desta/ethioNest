@@ -95,7 +95,7 @@ async function handleSearch() {
                 title: 'No results',
                 text: 'Try different search criteria',
                 toast: true,
-                position: 'top-end',
+                position: 'center',
                 showConfirmButton: false,
                 timer: 3000
             });
@@ -104,7 +104,7 @@ async function handleSearch() {
                 icon: 'success',
                 title: `${filtered.length} properties found`,
                 toast: true,
-                position: 'top-end',
+                position: 'center',
                 showConfirmButton: false,
                 timer: 2000
             });
@@ -180,14 +180,31 @@ function renderProperties(properties) {
                     <span class="feature"><i class="fas fa-ruler-combined"></i> ${property.area} sqft</span>
                 </div>
                 <div class="property-footer">
-                    <button class="btn-outline btn-primary" onClick="showDetail(${property.id})">View Details</button>
-                    <button class="favorite-btn" aria-label="Add to favorites" onclick="toggleFavorite(${property.id}, this)">
+                    <button class="btn-outline btn-primary" data-propertyId="${property.id}">View Details</button>
+                    <button class="favorite-btn" aria-label="Add to favorites" data-propertyId="${property.id}">
                         <i class="far fa-heart"></i>
                     </button>
                 </div>
             </div>
         </div>
     `).join('');
+
+    document.querySelectorAll(".favorite-btn").forEach(button => {
+
+        button.addEventListener("click",  function() {
+            const propertyId = this.getAttribute("data-propertyId");
+            toggleFavorite(propertyId, this);
+        })
+    
+    });
+
+    document.querySelectorAll(".btn-outline.btn-primary").forEach(button => {
+        button.addEventListener("click", function() {
+            const propertyId = this.getAttribute("data-propertyId");
+            showDetail(propertyId);
+        })
+    })
+    
 }
 
 function resetFilters() {
@@ -202,59 +219,21 @@ function resetFilters() {
     renderProperties(allProperties);
 }
 
-async function toggleFavorite(propertyId, button) {
-    const user = JSON.parse(localStorage.getItem('activeUser'));
-    if (!user) {
-        await Swal.fire({
-            icon: 'warning',
-            title: 'Please login',
-            text: 'You need to login to save favorites',
-            showCancelButton: true,
-            confirmButtonText: 'Login',
-            cancelButtonText: 'Cancel'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = './login.html';
-            }
-        });
-        return;
-    }
+ function toggleFavorite(propertyId, button) {
 
     const icon = button.querySelector('i');
     const isFavorite = icon.classList.contains('fas');
     
-    try {
         if (isFavorite) {
             icon.classList.replace('fas', 'far');
-            await fetch(`${API_BASE_URL}/removeFavorite`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, propertyId })
-            });
+
         } else {
             icon.classList.replace('far', 'fas');
-            await fetch(`${API_BASE_URL}/addFavorite`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user.id, propertyId })
-            });
         }
-    } catch (error) {
-        await Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Failed to update favorites'
-        });
-        
-        if (isFavorite) {
-            icon.classList.replace('far', 'fas');
-        } else {
-            icon.classList.replace('fas', 'far');
-        }
-    }
+
 }
 
 function showDetail(propertyId) {
     localStorage.setItem("activeProperty", propertyId);
-    window.location.href = './property-detail.html';
+    window.location.href = '/property-detail.html';
 }
