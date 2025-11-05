@@ -52,8 +52,8 @@ async function loadManageProperties() {
                 <td>${property.price}</td>
                 <td>${property.status}</td>
                 <td>
-                  <button class="edit-btn" onclick='editProperty(${JSON.stringify(property).replace(/"/g, "&quot;")})'>Edit</button>
-                  <button class="delete-btn" onclick='deleteProperty(${JSON.stringify(property).replace(/"/g, "&quot;")}, this)'>Delete</button>
+                  <button class="edit-btn property" property-data='${JSON.stringify(property).replace(/"/g, "&quot;")}'>Edit</button>
+                  <button class="delete-btn property" property-data='${JSON.stringify(property).replace(/"/g, "&quot;")}'>Delete</button>
                 </td>
               </tr>
             `).join('')}
@@ -73,6 +73,20 @@ async function loadManageProperties() {
   } finally {
     loader.close();
   }
+
+  document.querySelectorAll('.edit-btn.property').forEach(button => {
+    button.addEventListener('click' , function() {
+      const property = JSON.parse(this.getAttribute('property-data').replace(/&quot;/g, '"'));
+      editProperty(property);
+    })
+  })
+
+  document.querySelectorAll('.delete-btn.property').forEach(button => {
+    button.addEventListener('click' , function() {
+      const property = JSON.parse(this.getAttribute('property-data').replace(/&quot;/g, '"'));
+      deleteProperty(property, this);
+    })
+  })
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -259,7 +273,7 @@ function loadAddProperty() {
           title: 'Success!',
           text: 'New property uploaded successfully',
           toast: true,
-          position: 'top-end',
+          position: 'center',
           showConfirmButton: false,
           timer: 3000
         });
@@ -318,13 +332,13 @@ async function loadInquiries() {
           <td>${inquiry.phone}</td>
           <td>${inquiry.email}</td>
           <td>
-            <button class="edit-btn" onClick="reply(${inquiry.id})">Reply</button>
-            <button class="delete-btn" onClick="deleteInqu(${inquiry.id}, this)">Reject</button>
+            <button class="edit-btn inquiry reply" data-inquiry="${inquiry.id}">Reply</button>
+            <button class="delete-btn inquiry reject" data-inquiry="${inquiry.id}">Reject</button>
             <div id="replyForm_${inquiry.id}" class="oreply-form">
               <textarea class="reply-textarea" placeholder="Type your reply here..." id="reply_textArea_${inquiry.id}"></textarea>
               <div class="reply-buttons">
-                <button class="cancel-reply" id="cancel_reply" onClick="cancelReply(${inquiry.id})">Cancel</button>
-                <button class="send-reply" id="send_reply" onClick="sendReply(${inquiry.tenant_id}, ${inquiry.id}, this)">Send</button>
+                <button class="cancel-reply inquiry" data-inquiry="${inquiry.id}">Cancel</button>
+                <button class="send-reply inquiry" data-inquiry='{"tenantId":${inquiry.tenant_id},"inquiryId":${inquiry.id}}'>Send</button>
               </div>
             </div>
           </td>
@@ -340,6 +354,34 @@ async function loadInquiries() {
   } finally {
     loader.close();
   }
+
+  document.querySelectorAll('.edit-btn.inquiry.reply').forEach(button => {
+    button.addEventListener('click' , function() {
+      const inquiry_id = this.getAttribute('data-inquiry');
+      reply(inquiry_id);
+    })
+  })
+
+  document.querySelectorAll('.delete-btn.inquiry.reject').forEach(button => {
+    button.addEventListener('click' , function() {
+      const inquiryId = this.getAttribute('data-inquiry');
+      deleteInqu(inquiryId, this);
+    })
+  })
+
+  document.querySelectorAll('.send-reply.inquiry').forEach(button => {
+    button.addEventListener('click' , function() {
+      const replyData = JSON.parse(this.getAttribute("data-inquiry").replace(/'/g, '"'))
+      sendReply(replyData.tenantId , replyData.inquiryId , this)
+    })
+  })
+
+  document.querySelectorAll('.cancel-reply.inquiry').forEach(button => {
+    button.addEventListener('click' , function() {
+      const inquiryId = this.getAttribute("data-inquiry")
+      cancelReply(inquiryId)
+    })
+  })
 }
 
 async function loadProfileSettings() {
@@ -357,9 +399,15 @@ async function loadProfileSettings() {
       <input id="uphone" type="text" placeholder="Phone Number" required class="form-input" value="${user.phone}"><br>
       <label>about you</label>
       <textarea id="aboutu" placeholder="bio" class="form-input">${user.bio}</textarea><br>
-      <button type="button" onclick="editProfile(this)" class="submit-btn">Save Changes</button>
+      <button type="button" class="submit-btn editProfile">Save Changes</button>
     </form>
   `;
+
+  document.querySelectorAll('.submit-btn.editProfile').forEach(button => {
+    button.addEventListener('click' , function() {
+      editProfile(this)
+    })
+  })
 }
 
 async function editProfile(button) {
@@ -378,7 +426,7 @@ async function editProfile(button) {
       icon: 'info',
       title: 'No changes made',
       toast: true,
-      position: 'top-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 2000
     });
@@ -420,7 +468,7 @@ async function editProfile(button) {
           title: 'Saved!',
           text: 'Your profile has been updated',
           toast: true,
-          position: 'top-end',
+          position: 'center',
           showConfirmButton: false,
           timer: 2000
         });
@@ -466,7 +514,7 @@ async function deleteProperty(property, button) {
           title: 'Deleted!',
           text: 'Property has been deleted',
           toast: true,
-          position: 'top-end',
+          position: 'center',
           showConfirmButton: false,
           timer: 2000
         });
@@ -531,7 +579,7 @@ function editProperty(property) {
         icon: 'info',
         title: 'No changes made',
         toast: true,
-        position: 'top-end',
+        position: 'center',
         showConfirmButton: false,
         timer: 2000
       });
@@ -570,7 +618,7 @@ function editProperty(property) {
             title: 'Saved!',
             text: 'Property has been updated',
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
             timer: 2000
           });
@@ -605,7 +653,7 @@ async function sendReply(tenant_id, inquiry_id, button) {
       title: 'Empty Reply',
       text: 'Please type your reply before sending',
       toast: true,
-      position: 'top-end',
+      position: 'center',
       showConfirmButton: false,
       timer: 2000
     });
@@ -632,7 +680,7 @@ async function sendReply(tenant_id, inquiry_id, button) {
         title: 'Sent!',
         text: 'Message sent successfully',
         toast: true,
-        position: 'top-end',
+        position: 'center',
         showConfirmButton: false,
         timer: 2000
       });
@@ -684,7 +732,7 @@ async function deleteInqu(inqu_id, button) {
           title: 'Rejected!',
           text: 'Inquiry has been rejected',
           toast: true,
-          position: 'top-end',
+          position: 'center',
           showConfirmButton: false,
           timer: 2000
         });
