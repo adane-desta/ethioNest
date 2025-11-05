@@ -352,7 +352,7 @@ feedbacksnav.addEventListener('click', async () => {
                                 <td>${feedback.message}</td>
                                 <td>${new Date(feedback.date).toLocaleDateString()}</td>
                                 <td>
-                                    <button class="action-btn accept" onclick="markFeedbackAsResolved('${feedback.id}')">Done</button>
+                                    <button class="action-btn accept feedback" data-propertyId"${feedback.id}">Done</button>
                                 </td>
                             </tr>`
                         ).join('')}
@@ -365,6 +365,13 @@ feedbacksnav.addEventListener('click', async () => {
         console.error('Error fetching feedbacks:', error);
         contentArea.innerHTML = `<div class="error">Error loading feedbacks: ${error.message}</div>`;
     }
+
+    document.querySelectorAll('.action-btn.accept.feedback').forEach(button => {
+      button.addEventListener('click' , function() {
+        const feedbackId = this.getAttribute('data-propertyId')
+        markFeedbackAsResolved(feedbackId)
+      })
+    })
 });
 
 // Show request section
