@@ -405,9 +405,9 @@ requestsnav.addEventListener('click', async() => {
                                 <td>${request.address}</td>
                                 <td>${request.payment}</td>
                                 <td>
-                                    <button class="action-btn accept" onclick="approveProperty('${request.id}', '${request.title}', '${request.owner_id}')">Approve</button>
-                                    <button class="action-btn reject" onclick="rejectProperty('${request.id}')">Reject</button>
-                                    <button class="action-btn reject" style="background-color: transparent; color:blue;" onClick="showDetail('${request.id}')">Details</button>
+                                    <button class="action-btn accept request" requestData="{'requestId':${request.id},'requestTitle':'${request.title}','requestOwnerId':${request.owner_id}}">Approve</button>
+                                    <button class="action-btn reject request" data-requestId="${request.id}">Reject</button>
+                                    <button class="action-btn reject details" style="background-color: transparent; color:blue;" data-requestId="${request.id}">Details</button>
                                 </td>
                             </tr>`
                         ).join('')}
@@ -420,6 +420,27 @@ requestsnav.addEventListener('click', async() => {
         console.error('Error fetching property requests:', error);
         contentArea.innerHTML = `<div class="error">Error loading property requests: ${error.message}</div>`;
     }
+
+    document.querySelectorAll('.action-btn.accept.request').forEach(button => {
+      button.addEventListener('click' ,  function() {
+        const requestData = JSON.parse(this.getAttribute("requestData").replace(/'/g, '"'));
+        approveProperty(requestData.requestId, requestData.requestTitle, requestData.requestOwnerId);
+      })
+    })
+
+    document.querySelectorAll('.action-btn.reject.request').forEach(button => {
+      button.addEventListener('click' , function() {
+        const requestId = this.getAttribute('data-requestId')
+        rejectProperty(requestId);
+      })
+    })
+    
+    document.querySelectorAll('.action-btn.reject.details').forEach(button => {
+      button.addEventListener('click' , function() {
+        const requestId = this.getAttribute('data-requestId')
+        showDetail(requestId);
+      }) 
+    })
 });
 
 // Handle approving a property
