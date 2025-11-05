@@ -58,8 +58,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             <img src=${image.image_path}
             alt=${propertyDetail[0].title} 
             class="thumbnail"
-            onclick="changeMainImage(this)">`;
+            >`;
         });
+
+        document.querySelectorAll('.thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click' , function() {
+                changeMainImage(this);
+            })
+        })
 
     } catch (error) {
         await Swal.fire({
@@ -144,7 +150,7 @@ if (saveBtn) {
                         title: 'Removed!',
                         text: 'Property removed from favorites',
                         toast: true,
-                        position: 'top-end',
+                        position: 'center',
                         showConfirmButton: false,
                         timer: 2000
                     });
@@ -174,7 +180,7 @@ if (saveBtn) {
                         title: 'Saved!',
                         text: 'Property added to favorites',
                         toast: true,
-                        position: 'top-end',
+                        position: 'center',
                         showConfirmButton: false,
                         timer: 2000
                     });
