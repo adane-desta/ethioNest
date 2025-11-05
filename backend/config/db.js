@@ -4,6 +4,7 @@ import mysql from 'mysql2'
 
 dotenv.config();
 
+
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
     password: process.env.DB_PASSWORD,
