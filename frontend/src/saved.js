@@ -83,7 +83,7 @@ function renderProperties(properties) {
             <div class="property-img">
                 <img src="${property.image_path || '/images/default-property.jpg'}" alt="${property.title || 'Property'}">
                 <span class="property-badge">${property.status || 'Available'}</span>
-                <button class="unsave-btn" onclick="unsaveProperty(${property.id}, this)">
+                <button class="unsave-btn property" data-property="${property.id}">
                     <i class="fas fa-trash"></i>
                 </button>
             </div>
@@ -100,13 +100,27 @@ function renderProperties(properties) {
                     <span class="feature"><i class="fas fa-ruler-combined"></i> ${property.area || 0} sqft</span>
                 </div>
                 <div class="property-footer">
-                    <button onClick="showDetail(${property.id})" class="btn-outline btn-primary">
+                    <button data-property="${property.id}" class="btn-outline btn-primary">
                         View Details
                     </button>
                 </div>
             </div>
         </div>
     `).join('');
+
+    document.querySelectorAll('.unsave-btn.property').forEach(button => {
+        button.addEventListener('click' , function() {
+            const propertyID = this.getAttribute("data-property");
+            unsaveProperty(propertyID , this);
+        })
+    })
+
+    document.querySelectorAll('.btn-outline.btn-primary').forEach(button => {
+        button.addEventListener('click' , function() {
+            const propertyId = this.getAttribute("data-property");
+            showDetail(propertyId);
+        })
+    })
 }
 
 async function unsaveProperty(propertyId, button) {
@@ -138,7 +152,7 @@ async function unsaveProperty(propertyId, button) {
                 title: 'Removed!',
                 text: 'Property has been removed from your saved list',
                 toast: true,
-                position: 'top-end',
+                position: 'center',
                 showConfirmButton: false,
                 timer: 2000
             });
