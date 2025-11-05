@@ -134,7 +134,7 @@ const getusers = async () => {
                                 <td>${user.phone}</td>
                                 <td>${user.role}</td>
                                 <td> 
-                                    <button class="action-btn reject" onclick="deleteUser(${user.id})">Delete</button>
+                                    <button class="action-btn reject user" data-propertyId="${user.id}">Delete</button>
                                 </td>
                             </tr>`
                         ).join('')}
@@ -146,6 +146,13 @@ const getusers = async () => {
         console.error('Error fetching users:', error);
         contentArea.innerHTML = `<div class="error">Error loading users: ${error.message}</div>`;
     }
+
+    document.querySelectorAll('.action-btn.reject.user').forEach(button => {
+        button.addEventListener('click', () => {
+            const userId = button.getAttribute('data-propertyId');
+            deleteUser(userId);
+        });
+    })
 };
 
 async function deleteUser(userId) {
@@ -238,8 +245,8 @@ const getproperties = async (status, selectedStatus) => {
                                 <td>${property.address}</td>
                                 <td>${property.status}</td>
                                 <td>
-                                    <button class="action-btn accept" onClick="showDetail(${property.id})">See More</button>
-                                    <button class="action-btn reject" onclick="deleteProperties(${property.id})">Delete</button>
+                                    <button class="action-btn accept property" data-propertyId="${property.id}">See More</button>
+                                    <button class="action-btn reject property" data-propertyId="${property.id}">Delete</button>
                                 </td>
                             </tr>`
                         ).join('')}
@@ -256,7 +263,22 @@ const getproperties = async (status, selectedStatus) => {
         console.error('Error fetching properties:', error);
         contentArea.innerHTML = `<div class="error">Error loading properties: ${error.message}</div>`;
     }
+
+    document.querySelectorAll('.action-btn.accept.property').forEach(button => {
+      button.addEventListener("click" , function() {
+        const propertyId = this.getAttribute("data-propertyId")
+        showDetail(propertyId)
+      })
+    })
+
+    document.querySelectorAll('.action-btn.reject.property').forEach(button => {
+      button.addEventListener('click' , function() {
+        const propertyId = this.getAttribute("data-propertyId")
+        deleteProperties(propertyId)
+      })
+    })
 };
+
 
 async function deleteProperties(property_id) {
     const result = await Swal.fire({
