@@ -157,9 +157,15 @@ function renderProperties(properties) {
             <div class="no-results">
                 <i class="fas fa-search"></i>
                 <p>No properties found matching your criteria</p>
-                <button class="btn-primary" onclick="resetFilters()">Reset Filters</button>
+                <button class="btn-primary reset-filter">Reset Filters</button>
             </div>
         `;
+        document.querySelectorAll('.btn-primary.reset-filter').forEach(button => {
+            button.addEventListener('click' , function() {
+                resetFilters();
+            })
+        })
+        
         return;
     }
 
