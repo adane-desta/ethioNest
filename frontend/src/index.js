@@ -146,6 +146,12 @@ document.addEventListener('DOMContentLoaded', async() => {
     
     })
 
+    document.querySelectorAll('.search-btn, .view-all, .btn, .btn-primary1').forEach(button => {
+        button.addEventListener('click' , function() {
+            showLoginPopup();
+        })
+    })
+
 });
 
 document.getElementById('feedbackForm').addEventListener('submit', async() =>{

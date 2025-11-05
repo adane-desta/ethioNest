@@ -37,7 +37,7 @@ profileImage.addEventListener('change', function() {
                 title: 'Image too large',
                 text: 'Please select an image smaller than 2MB',
                 toast: true,
-                position: 'top-end',
+                position: 'center',
                 showConfirmButton: false,
                 timer: 3000
             });
@@ -52,7 +52,7 @@ profileImage.addEventListener('change', function() {
                 title: 'Invalid file type',
                 text: 'Please select an image file (JPEG, PNG, etc.)',
                 toast: true,
-                position: 'top-end',
+                position: 'center',
                 showConfirmButton: false,
                 timer: 3000
             });

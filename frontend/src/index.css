@@ -74,11 +74,25 @@ h3 { font-size: 1.5rem; }
     border: none;
     text-decoration: none;
 }
+.btn-primary1 {
+    background: var(--primary);
+    color: white;
+    border: none;
+    text-decoration: none;
+}
 
 .btn-primary:hover {
     background: transparent;
     color: var(--primary);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary1:hover {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    text-decoration: none;
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 

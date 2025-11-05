@@ -101,7 +101,7 @@ if (saveButtons.length > 0) {
                     title: 'Saved!',
                     text: 'Property added to your favorites',
                     toast: true,
-                    position: 'top-end',
+                    position: 'center',
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -112,7 +112,7 @@ if (saveButtons.length > 0) {
                     title: 'Removed!',
                     text: 'Property removed from favorites',
                     toast: true,
-                    position: 'top-end',
+                    position: 'center',
                     showConfirmButton: false,
                     timer: 1500
                 });
