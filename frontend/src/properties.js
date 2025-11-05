@@ -122,6 +122,7 @@ async function handleSearch() {
     }
 } 
 
+
 // Filter properties based on current filters
 function filterProperties(allProperties, filters) {
     if (!allProperties) return [];
