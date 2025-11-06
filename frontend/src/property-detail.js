@@ -1,5 +1,5 @@
 // Base API URL
-const API_BASE_URL = 'http://localhost:5200/api';
+const API_BASE_URL = 'https://ethinest.onrender.com/api';
 
 const propertyId = localStorage.getItem("activeProperty");
 let propertyDetail = null;

@@ -11,7 +11,7 @@ const modal = document.getElementById('modal');
 let activeSection = '';
 
 // Base API URL
-const API_BASE_URL = 'http://localhost:5200/api';
+const API_BASE_URL = 'https://ethinest.onrender.com/api';
 
 // Show Analytics page at start
 analyticsnav.addEventListener('click', async() => {

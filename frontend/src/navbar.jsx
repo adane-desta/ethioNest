@@ -11,7 +11,7 @@ import './navBar2.css';
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("activeUser"));
-  const API_BASE_URL = 'http://localhost:5200/api';
+  const API_BASE_URL = 'https://ethinest.onrender.com/api';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showMessages, setShowMessages] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
