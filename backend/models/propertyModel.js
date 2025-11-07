@@ -16,7 +16,7 @@ const propertyModel = {
         try {
             // Insert property data
             const [propertyResult] = await connection.query(
-                   `insert into ethionest.properties (owner_id , title , description , type , rentorsell , address , bedrooms , 
+                   `insert into properties (owner_id , title , description , type , rentorsell , address , bedrooms , 
                     bathrooms, area , price , negotiable, year_built , specific_place, kebele)
                     values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
 
