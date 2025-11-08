@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     
     })
 
-    document.querySelectorAll('.search-btn, .view-all, .btn, .btn-primary1').forEach(button => {
+    document.querySelectorAll('.show-login-popup').forEach(button => {
         button.addEventListener('click' , function() {
             showLoginPopup();
         })

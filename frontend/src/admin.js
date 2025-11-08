@@ -352,7 +352,7 @@ feedbacksnav.addEventListener('click', async () => {
                                 <td>${feedback.message}</td>
                                 <td>${new Date(feedback.date).toLocaleDateString()}</td>
                                 <td>
-                                    <button class="action-btn accept feedback" data-propertyId"${feedback.id}">Done</button>
+                                    <button class="action-btn accept feedback" data-propertyId="${feedback.id}">Done</button>
                                 </td>
                             </tr>`
                         ).join('')}
