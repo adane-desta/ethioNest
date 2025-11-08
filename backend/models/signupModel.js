@@ -33,7 +33,7 @@ const signupModel = {
 
             const [insertedUser] = await connection.query(
                 `INSERT INTO users(firstname, lastname, email, password, role, phone, bio, profile_picture, Preferredlocation) 
-                VALUES(?,?,?,?,?,?,?,?,?,?)`,
+                VALUES(?,?,?,?,?,?,?,?,?)`,
                 [
                     newUser.firstname,
                     newUser.lastname,
