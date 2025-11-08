@@ -9,7 +9,12 @@ const signupController = {
             const insertedUser = await signupModel.addNewUser(newUser, profileImage);
             res.status(201).json(insertedUser);
         } catch (error) {
-            res.status(500).json({error: error.message});
+            if (error.code === 'ER_DUP_ENTRY') {
+                return res.status(400).json({error: 'Email already exists'});
+            }
+            else{
+                 res.status(500).json({error: "something went wrong please try again later"});
+            }
         }
     }
 };
