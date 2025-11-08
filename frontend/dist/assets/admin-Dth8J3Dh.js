@@ -167,7 +167,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";const c=document.getElementById("re
                                 <td>${e.message}</td>
                                 <td>${new Date(e.date).toLocaleDateString()}</td>
                                 <td>
-                                    <button class="action-btn accept feedback" data-propertyId"${e.id}">Done</button>
+                                    <button class="action-btn accept feedback" data-propertyId="${e.id}">Done</button>
                                 </td>
                             </tr>`).join("")}
                     </tbody>
