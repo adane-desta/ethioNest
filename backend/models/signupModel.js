@@ -32,7 +32,7 @@ const signupModel = {
             }
 
             const [insertedUser] = await connection.query(
-                `INSERT INTO users(firstname, lastname, email, password, role, phone, bio, profile_picture, created_at, Preferredlocation) 
+                `INSERT INTO users(firstname, lastname, email, password, role, phone, bio, profile_picture, Preferredlocation) 
                 VALUES(?,?,?,?,?,?,?,?,?,?)`,
                 [
                     newUser.firstname,
@@ -43,7 +43,6 @@ const signupModel = {
                     newUser.phone,
                     newUser.bio,
                     profileImagePath,
-                    Date.now(),
                     newUser.preferredLocation
                 ]
             );
